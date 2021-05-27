@@ -10,6 +10,7 @@ namespace SalesWebMvc.Controllers
 {
     public class HomeController : Controller
     {
+        //Leanr: IActionResult são endpoints!
         public IActionResult Index()
         {
             return View();
@@ -17,7 +18,8 @@ namespace SalesWebMvc.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Reception"] = "Hello, welcome to our store! We hope you're having an amazing day and find out all products you need here.";
+            ViewData["Nome"] = "Mariana Antunes";
 
             return View();
         }
