@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SalesWebMvc.Models;
+using SalesWebMvc.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +11,7 @@ namespace SalesWebMvc.Controllers
 {
     public class HomeController : Controller
     {
-        //Leanr: IActionResult são endpoints!
+        //Learn: IActionResult são endpoints!
         public IActionResult Index()
         {
             return View();
