@@ -1,7 +1,7 @@
 ﻿@model SalesWebMvc.Models.Seller
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Details";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -10,7 +10,7 @@
 
 <div>
     <h4>Seller</h4>
-    <hr/>
+    <hr />
     <dl class="dl-horizontal">
         <dt>
             @Html.DisplayNameFor(_ => _.Name);
@@ -36,11 +36,16 @@
         <dd>
             @Html.DisplayFor(_ => _.BaseSalary);
         </dd>
+        <dt>
+            @Html.DisplayNameFor(_ => _.Department);
+        </dt>
+        <dd>
+            @Html.DisplayFor(_ => _.Department.Name);
+        </dd>
     </dl>
+</div>
 
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="Id"/>
-        <input type="submit" value="Delete" class="btn btn-danger"/>
-        <a asp-action="Index">Back to List</a>
-    </form>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-default">Edit</a>
+    <a asp-action="Index">back to list</a>
 </div>
