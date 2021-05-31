@@ -28,5 +28,22 @@ namespace SalesWebMvc.Services
                 .OrderByDescending(_ => _.Date)
                 .ToListAsync();
         }
+
+        public async Task<List<IGrouping<Department,SalesRecord>>> FindByDateGroupingAsync(DateTime? minDate, DateTime? maxDate)
+        {
+            var result = from obj in _context.SalesRecord select obj;
+            if (minDate.HasValue)
+                result = result.Where(_ => _.Date >= minDate.Value);
+
+            if (maxDate.HasValue)
+                result = result.Where(_ => _.Date <= maxDate.Value);
+
+            return await result
+                .Include(_ => _.Seller)
+                .Include(_ => _.Seller.Department)
+                .OrderByDescending(_ => _.Date)
+                .GroupBy(_ => _.Seller.Department)
+                .ToListAsync();
+        }
     }
 }
